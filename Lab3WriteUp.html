@@ -608,13 +608,14 @@ Figure&nbsp;3: The unit square transformed into a line.
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Find area</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a></span>
-<span id="cb59-3"><a href="#cb59-3"></a>(<span class="fu">det</span>(A))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb59-3"><a href="#cb59-3"></a><span class="fu">cat</span>(<span class="st">"The area of the shape is"</span>,  <span class="fu">det</span>(A))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 44</code></pre>
+<pre><code>The area of the shape is 44</code></pre>
 </div>
 </div>
 <p></p>
+<p>The shape appears to be less sheared than in Question 1; this is probably because adding a vertical slant coefficient of 0.5 “undid” the vertical slant inherently contained in the A matrix.</p>
 </section>
 <section id="part-b-2" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="part-b-2"><span class="header-section-number">3.2</span> Part b</h2>

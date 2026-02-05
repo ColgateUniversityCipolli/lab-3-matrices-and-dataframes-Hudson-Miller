@@ -349,8 +349,10 @@ ggplot() +
 
 # Find area
 
-(det(A))
+cat("The area of the shape is",  det(A))
 ```
+
+The shape appears to be less sheared than in Question 1; this is probably because adding a vertical slant coefficient of 0.5 "undid" the vertical slant inherently contained in the A matrix. The area is the same, and the general form of the shape is similar to that in Question 1.
 
 ## Part b
 Use the following to generate a new shape. Compare the shape and its area to your answer in Questions 1 and the vertical shear transform in part (a).
