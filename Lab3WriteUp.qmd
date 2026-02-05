@@ -382,10 +382,9 @@ p0 = c(0,0)
 p1 = basis.vector.1
 p2 = basis.vector.1 + basis.vector.2
 p3 = basis.vector.2
+```
 
-
-# Plot Shape
-
+```{r}
 #| label: fig-unitslanthorizontal
 #| fig-cap: "The unit square sheared horizontally."
 #| fig-width: 3
@@ -393,10 +392,7 @@ p3 = basis.vector.2
 #| scale: "80%"
 #| fig-align: "center"
 #| size: "scriptsize"
-p0
-p1
-p2
-p3
+
 ggplot() +
   geom_segment(aes(x = p0[1], y = p0[2], xend = p1[1], yend = p1[2])) +
   geom_segment(aes(x = p1[1], y = p1[2], xend = p2[1], yend = p2[2])) +
@@ -406,7 +402,9 @@ ggplot() +
   # xlim(-8, 1.5) +
   # ylim(-0.5, 1.5) +
   labs(x = "x", y = "y")
+```
 
+```{r}
 # Find area
 
 cat("The area of the shape is",  det(A))
@@ -442,10 +440,9 @@ p0 = c(0,0)
 p1 = basis.vector.1
 p2 = basis.vector.1 + basis.vector.2
 p3 = basis.vector.2
+```
 
-
-# Plot Shape
-
+```{r}
 #| label: fig-unitslantboth
 #| fig-cap: "The unit square sheared both horizontally and vertically."
 #| fig-width: 3
@@ -453,10 +450,7 @@ p3 = basis.vector.2
 #| scale: "80%"
 #| fig-align: "center"
 #| size: "scriptsize"
-p0
-p1
-p2
-p3
+
 ggplot() +
   geom_segment(aes(x = p0[1], y = p0[2], xend = p1[1], yend = p1[2])) +
   geom_segment(aes(x = p1[1], y = p1[2], xend = p2[1], yend = p2[2])) +
@@ -466,7 +460,9 @@ ggplot() +
   # xlim(-8, 1.5) +
   # ylim(-0.5, 1.5) +
   labs(x = "x", y = "y")
+```
 
+```{r}
 # Find area
 
 cat("The area of the shape is",  det(A))
