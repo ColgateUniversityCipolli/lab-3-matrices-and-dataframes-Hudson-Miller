@@ -326,8 +326,8 @@ p3 = basis.vector.2
 
 # Plot Shape
 
-#| label: fig-unitline
-#| fig-cap: "The unit square transformed into a line."
+#| label: fig-unitslantvertical
+#| fig-cap: "The unit square sheared vertically."
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -359,10 +359,121 @@ Use the following to generate a new shape. Compare the shape and its area to you
 $$ \mathbf{M}_h = \begin{bmatrix} 1 & 0 \\ k=0.5 & 1 \end{bmatrix}~~~~~ \textrm{and} ~~~~~
   \mathbf{A}   = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
 
+**Solution**
+
+```{r}
+
+# Create A
+
+(A = matrix(data = c(1,-7,5,9), byrow = T, nrow = 2, ncol = 2))
+
+# Create M and calculate T
+
+M = matrix(data = c(1,0,0.5,1), byrow = T, nrow = 2, ncol = 2)
+(T = A %*% M)
+
+# Create basis vectors (generalized setup)
+(basis.vector.1 = T[,1])
+(basis.vector.2 = T[,2])
+
+
+# Find corners from basis vectors
+
+p0 = c(0,0)
+p1 = basis.vector.1
+p2 = basis.vector.1 + basis.vector.2
+p3 = basis.vector.2
+
+
+# Plot Shape
+
+#| label: fig-unitslanthorizontal
+#| fig-cap: "The unit square sheared horizontally."
+#| fig-width: 3
+#| fig-height: 3
+#| scale: "80%"
+#| fig-align: "center"
+#| size: "scriptsize"
+p0
+p1
+p2
+p3
+ggplot() +
+  geom_segment(aes(x = p0[1], y = p0[2], xend = p1[1], yend = p1[2])) +
+  geom_segment(aes(x = p1[1], y = p1[2], xend = p2[1], yend = p2[2])) +
+  geom_segment(aes(x = p2[1], y = p2[2], xend = p3[1], yend = p3[2])) +
+  geom_segment(aes(x = p3[1], y = p3[2], xend = p0[1], yend = p0[2])) +
+  theme_bw() +
+  # xlim(-8, 1.5) +
+  # ylim(-0.5, 1.5) +
+  labs(x = "x", y = "y")
+
+# Find area
+
+cat("The area of the shape is",  det(A))
+```
+This result seems to confirm our hypothesis in part 3a. The area is the same as that of the shape in Question 1 and the sape in part 3a, but there is a lot of vertical shear (probably the same amount as in Question 1), and more horizontal shear.
+
 ## Part c
 Can we shear vertically and horizontally at the same time? Use the following to generate a new shape. Compare the shape and its area to your answers in parts (a) and (b).
 $$\mathbf{M}_{vh} = \begin{bmatrix} 1 & k=0.5 \\ k=0.5 & 1 \end{bmatrix} ~~~~~ \textrm{and} ~~~~~
   \mathbf{A}   = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
+
+  **Solution**
+
+```{r}
+
+# Create A
+
+(A = matrix(data = c(1,-7,5,9), byrow = T, nrow = 2, ncol = 2))
+
+# Create M and calculate T
+
+M = matrix(data = c(1,0.5,0.5,1), byrow = T, nrow = 2, ncol = 2)
+(T = A %*% M)
+
+# Create basis vectors (generalized setup)
+(basis.vector.1 = T[,1])
+(basis.vector.2 = T[,2])
+
+
+# Find corners from basis vectors
+
+p0 = c(0,0)
+p1 = basis.vector.1
+p2 = basis.vector.1 + basis.vector.2
+p3 = basis.vector.2
+
+
+# Plot Shape
+
+#| label: fig-unitslantboth
+#| fig-cap: "The unit square sheared both horizontally and vertically."
+#| fig-width: 3
+#| fig-height: 3
+#| scale: "80%"
+#| fig-align: "center"
+#| size: "scriptsize"
+p0
+p1
+p2
+p3
+ggplot() +
+  geom_segment(aes(x = p0[1], y = p0[2], xend = p1[1], yend = p1[2])) +
+  geom_segment(aes(x = p1[1], y = p1[2], xend = p2[1], yend = p2[2])) +
+  geom_segment(aes(x = p2[1], y = p2[2], xend = p3[1], yend = p3[2])) +
+  geom_segment(aes(x = p3[1], y = p3[2], xend = p0[1], yend = p0[2])) +
+  theme_bw() +
+  # xlim(-8, 1.5) +
+  # ylim(-0.5, 1.5) +
+  labs(x = "x", y = "y")
+
+# Find area
+
+cat("The area of the shape is",  det(A))
+```
+
+The determinant (and hence the area) is the same for all three shapes. This shape is more distorted, and seems to approach a "flipped" version of the diagonal line in part 1e. I believe that if we increase both k-values (maybe as they approach 1?), the shape will approach a diagonal line. (I tested this and it is true!)
 
 # Question 4
 
